@@ -1,0 +1,97 @@
+name: shahnAk
+description: "شحنك - Professional Sudanese Gaming Recharge & Account Store Platform"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  
+  # Firebase
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.10.0
+  cloud_firestore: ^4.13.0
+  firebase_storage: ^11.2.0
+  firebase_messaging: ^14.6.0
+  
+  # State Management
+  provider: ^6.1.0
+  
+  # Local Storage
+  get_storage: ^2.1.1
+  shared_preferences: ^2.2.0
+  
+  # UI & Design
+  glass_morphism: ^1.0.0
+  google_fonts: ^6.0.0
+  lottie: ^2.6.0
+  shimmer: ^3.0.0
+  
+  # Localization & Internationalization
+  intl: ^0.18.1
+  get: ^4.6.5
+  
+  # Authentication
+  google_sign_in: ^6.1.0
+  
+  # Image & File Handling
+  image_picker: ^1.0.2
+  image_picker_for_web: ^3.0.0
+  cached_network_image: ^3.3.0
+  
+  # Networking & HTTP
+  http: ^1.1.0
+  dio: ^5.3.0
+  
+  # URL Launcher
+  url_launcher: ^6.1.0
+  
+  # Environment Variables
+  flutter_dotenv: ^5.1.0
+  
+  # Date & Time
+  timeago: ^3.5.0
+  
+  # Validation
+  email_validator: ^2.1.0
+  
+  # Charts & Analytics
+  fl_chart: ^0.63.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_linter: ^2.0.0
+  build_runner: ^2.4.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/animations/
+    - assets/translations/
+    - .env
+  
+  fonts:
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo/Cairo-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Cairo/Cairo-SemiBold.ttf
+          weight: 600
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+          weight: 600
