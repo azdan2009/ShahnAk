@@ -120,23 +120,7 @@ flutter build ios --release
 
 ## 📁 Project Structure
 
-```
-ShahnAk/
-├── lib/
-│   ├── config/
-│   ├── models/
-│   ├── services/
-│   ├── providers/
-│   ├── screens/
-│   ├── widgets/
-│   ├── utils/
-│   ├── main.dart
-│   └── app.dart
-├── assets/
-├── pubspec.yaml
-├── .env.example
-└── README.md
-```
+
 
 ---
 
