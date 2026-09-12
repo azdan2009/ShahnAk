@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شحنك 🎮🇸🇩</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sudanBeige: '#FDFBF7',
+            sudanBrown: '#8C6747',
+            sudanOrange: '#E87A5D',
+            sudanDark: '#2C221E'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px 0 rgba(140, 103, 71, 0.08);
+    }
+    .bg-sudan-pattern {
+      background-color: #FDFBF7;
+      background-image: radial-gradient(#E87A5D 0.5px, transparent 0.5px), radial-gradient(#8C6747 0.5px, #FDFBF7 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+      background-opacity: 0.05;
+    }
+  </style>
+</head>
+<body class="bg-sudanBeige text-sudanDark">
+  <!-- Navigation Bar -->
+  <nav class="glass-card fixed top-0 left-0 right-0 z-50 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-sudanOrange">🎮 شحنك</h1>
+      <div class="flex gap-4">
+        <button onclick="goToSection('games')" class="text-sudanBrown hover:text-sudanOrange transition">الألعاب</button>
+        <button onclick="goToSection('accounts')" class="text-sudanBrown hover:text-sudanOrange transition">حسابات FF</button>
+        <button onclick="goToSection('orders')" class="text-sudanBrown hover:text-sudanOrange transition">طلباتي</button>
+        <button onclick="logoutUser()" class="bg-sudanOrange text-white px-4 py-2 rounded-lg hover:bg-sudanBrown transition">تسجيل الخروج</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <div class="pt-20 px-6 py-8">
+    <!-- Bank Transfer Details Section -->
+    <div class="glass-card rounded-2xl p-6 text-right max-w-md mx-auto my-4">
+      <h3 class="text-xl font-bold text-sudanDark flex items-center gap-2 mb-4">
+        <span>🏦</span> بيانات التحويل البنكي
+      </h3>
+      
+      <div class="space-y-3">
+        <div class="flex justify-between items-center text-sm border-b border-gray-200/50 pb-2">
+          <span class="font-bold text-sudanBrown" id="bankName">بنك الخرطوم (بنكك)</span>
+          <span class="text-gray-500">البنك</span>
+        </div>
+        
+        <div class="flex justify-between items-center text-sm border-b border-gray-200/50 pb-2">
+          <span class="font-bold text-sudanDark" id="accountHolder">محمد يوسف ابكر</span>
+          <span class="text-gray-500">اسم الحساب</span>
+        </div>
+        
+        <div class="flex justify-between items-center text-base pt-1">
+          <button onclick="copyToClipboard('9142766')" class="bg-sudanOrange/10 text-sudanOrange px-3 py-1 rounded-lg text-xs font-semibold hover:bg-sudanOrange hover:text-white transition">
+            📋 نسخ رقم الحساب
+          </button>
+          <span class="font-mono font-extrabold text-lg text-sudanDark" id="accountNumber">9142766</span>
+        </div>
+      </div>
+
+      <!-- Upload Proof Section -->
+      <form id="uploadProofForm" class="mt-6 pt-4 border-t border-gray-200/60" enctype="multipart/form-data">
+        <label class="block text-sm font-semibold text-sudanDark mb-2">📤 رفع إثبات التحويل</label>
+        <input type="file" id="proofInput" accept="image/*" class="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-sudanOrange file:text-white hover:file:bg-sudanBrown transition" required />
+        <button type="submit" class="w-full mt-4 bg-sudanOrange text-white font-bold py-2.5 rounded-xl hover:shadow-lg transition">إرسال الإثبات للمراجعة</button>
+      </form>
+    </div>
+
+    <!-- Games Section -->
+    <section id="games" class="mt-12">
+      <h2 class="text-3xl font-bold text-sudanDark mb-6 text-center">🎮 الألعاب المتاحة</h2>
+      <div id="gamesList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Games will be loaded here -->
+      </div>
+    </section>
+
+    <!-- Free Fire Accounts Section -->
+    <section id="accounts" class="mt-12">
+      <h2 class="text-3xl font-bold text-sudanDark mb-6 text-center">🔥 حسابات Free Fire</h2>
+      <div id="accountsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Accounts will be loaded here -->
+      </div>
+    </section>
+
+    <!-- Orders Section -->
+    <section id="orders" class="mt-12">
+      <h2 class="text-3xl font-bold text-sudanDark mb-6 text-center">📦 طلباتي</h2>
+      <div id="ordersList" class="space-y-4">
+        <!-- Orders will be loaded here -->
+      </div>
+    </section>
+  </div>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
