@@ -1,42 +1,35 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
 
-// Middleware
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Database Connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log('✅ تم الاتصال بقاعدة البيانات بنجاح');
-}).catch(err => {
-  console.error('❌ خطأ في الاتصال بقاعدة البيانات:', err);
-  process.exit(1);
-});
+// قاعدة البيانات
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('✅ تم الاتصال بقاعدة بيانات شحنك بنجاح'))
+  .catch(err => console.error('❌ خطأ اتصال قاعدة البيانات:', err));
 
-// Routes
+// المسارات API
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/orders', require('./routes/orders'));
 app.use('/api/games', require('./routes/games'));
 app.use('/api/accounts', require('./routes/accounts'));
-app.use('/api/orders', require('./routes/orders'));
+app.use('/api/admin', require('./routes/admin'));
 
-// Health Check
-app.get('/api/health', (req, res) => {
-  res.json({ status: '✅ الخادم يعمل بكفاءة' });
-});
-
-// Error Handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: 'حدث خطأ في الخادم' });
+// توجيه جميع الصفحات لـ public
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 الخادم يعمل على المنفذ ${PORT}`);
+  console.log(`🚀 خادم شحنك يعمل على المنفذ: ${PORT}`);
 });
