@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شحنك 🎮🇸🇩 - متجر الألعاب وحسابات فري فاير</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sudanBeige: '#FDFBF7',
+            sudanBrown: '#8C6747',
+            sudanOrange: '#E87A5D',
+            sudanDark: '#2C221E'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .glass-card {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 8px 32px 0 rgba(140, 103, 71, 0.08);
+    }
+    body {
+      background-color: #FDFBF7;
+      background-image: radial-gradient(#E87A5D 0.5px, transparent 0.5px), radial-gradient(#8C6747 0.5px, #FDFBF7 0.5px);
+      background-size: 20px 20px;
+      background-position: 0 0, 10px 10px;
+    }
+  </style>
+</head>
+<body class="text-sudanDark min-h-screen pb-24">
+
+  <!-- Header -->
+  <header class="glass-card sticky top-0 z-30 px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <span class="text-2xl">🎮</span>
+      <h1 class="text-xl font-bold text-sudanBrown">شحنك 🇸🇩</h1>
+    </div>
+    <span class="text-xs font-semibold bg-sudanOrange/10 text-sudanOrange px-3 py-1 rounded-full">
+      اشحن لعبتك... وخلي الباقي علينا
+    </span>
+  </header>
+
+  <!-- Content Container -->
+  <main class="max-w-md mx-auto p-4 space-y-6">
+
+    <!-- Hero Banner -->
+    <div class="glass-card rounded-2xl p-6 text-center space-y-3">
+      <h2 class="text-lg font-bold text-sudanDark">مرحبًا بك في شحنك 🎮🇸🇩</h2>
+      <p class="text-sm text-gray-600">اشحن ألعابك بسهولة واحصل على أفضل الحسابات والعروض بأمان تام.</p>
+    </div>
+
+    <!-- Bank Details Card -->
+    <div class="glass-card rounded-2xl p-6 text-right">
+      <h3 class="text-lg font-bold text-sudanDark flex items-center gap-2 mb-4">
+        <span>🏦</span> بيانات التحويل البنكي
+      </h3>
+      
+      <div class="space-y-3 text-sm">
+        <div class="flex justify-between border-b border-gray-200/60 pb-2">
+          <span class="text-gray-500">البنك</span>
+          <span class="font-bold text-sudanBrown" id="bankName">بنك الخرطوم (بنكك)</span>
+        </div>
+        <div class="flex justify-between border-b border-gray-200/60 pb-2">
+          <span class="text-gray-500">اسم الحساب</span>
+          <span class="font-bold text-sudanDark" id="accountHolder">محمد يوسف ابكر</span>
+        </div>
+        <div class="flex justify-between items-center pt-1">
+          <button onclick="copyAccount('9142766')" class="bg-sudanOrange/10 text-sudanOrange px-3 py-1 rounded-lg text-xs font-bold hover:bg-sudanOrange hover:text-white transition">
+            📋 نسخ رقم الحساب
+          </button>
+          <span class="font-mono font-extrabold text-base text-sudanDark" id="accountNumber">9142766</span>
+        </div>
+      </div>
+
+      <!-- Upload Proof Form -->
+      <form id="uploadForm" class="mt-6 pt-4 border-t border-gray-200/60 space-y-3">
+        <label class="block text-xs font-bold text-sudanDark">📤 رفع إثبات التحويل</label>
+        <input type="file" id="proofInput" class="w-full text-xs text-gray-500 file:mr-2 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-sudanOrange file:text-white hover:file:bg-sudanBrown transition" required />
+        <button type="submit" class="w-full bg-sudanOrange text-white text-sm font-bold py-2.5 rounded-xl hover:shadow-lg transition">إرسال الإثبات للمراجعة</button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/24928469145" target="_blank" class="fixed bottom-20 right-4 z-50 bg-green-500 text-white p-3.5 rounded-full shadow-xl flex items-center gap-2">
+    <span class="text-lg">💬</span>
+    <span class="text-xs font-bold">تواصل معنا</span>
+  </a>
+
+  <!-- Bottom Navigation Bar -->
+  <nav class="fixed bottom-0 left-0 right-0 glass-card rounded-t-2xl border-t border-white/50 z-40 px-6 py-3">
+    <div class="flex justify-around items-center max-w-md mx-auto text-xs">
+      <button class="flex flex-col items-center text-sudanOrange font-bold">
+        <span class="text-lg">🏠</span>
+        <span>الرئيسية</span>
+      </button>
+      <button class="flex flex-col items-center text-gray-500">
+        <span class="text-lg">🎮</span>
+        <span>الألعاب</span>
+      </button>
+      <button class="flex flex-col items-center text-gray-500">
+        <span class="text-lg">🛒</span>
+        <span>الطلبات</span>
+      </button>
+      <button class="flex flex-col items-center text-gray-500">
+        <span class="text-lg">👤</span>
+        <span>حسابي</span>
+      </button>
+    </div>
+  </nav>
+
+  <script src="/app.js"></script>
+</body>
+</html>
